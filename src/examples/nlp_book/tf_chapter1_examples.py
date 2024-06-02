@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 import nltk
 from nltk.book import *
 
-# dispersion plot
+### dispersion plot
 text4.dispersion_plot(["citizens", "democracy", "freedom", "duties", "America"])
 # plt.show()
 
-# word frequency
+
+### word frequency
 fdist = FreqDist(text1)
 # fdist.plot(75, cumulative=True)
 
@@ -16,7 +17,7 @@ long_words = [w for w in corpus if len(w) > 15]
 sorted(long_words)
 
 
-### show the first N sentences of this book.
+### show the first N sentences of a book.
 import nltk
 from nltk.tokenize import sent_tokenize
 
@@ -38,3 +39,14 @@ def print_sentences(corpus, start, end):
 # Example usage:
 from nltk.book import text5
 print_sentences(text5, 0, 50)
+
+
+# Word Sense Disambiguation
+# a. The lost children were found by the searchers (agentive) 
+# b. The lost children were found by the mountain (locative)
+# c. The lost children were found by the afternoon (temporal)
+
+# Pronoun Resolution
+# a. The thieves stole the paintings. They were subsequently sold.
+# b. The thieves stole the paintings. They were subsequently caught.
+# c. The thieves stole the paintings. They were subsequently found.

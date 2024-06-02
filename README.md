@@ -5,35 +5,35 @@ Setup your virutalenv venv with something like this...
 
 ```sh
 brew install python@3.10 ## to get python, if you do'nt already have it! 
-brew install python-tk ## to do NLTK plots from virtualenv 
+brew install python-tk@3.10 tcl-tk 
+brew link --overwrite python-tk@3.10
+# create your venv with python3.10, like this.
 /opt/homebrew/Cellar/python\@3.10/3.10.13_2/bin/python3.10 -m venv .venv
+#activate and further build your virtual environment 
 source ./.venv/bin/activate
 pip install --upgrade pip
 pip install -r ./requirements.txt
 ```
 
-## Set PYTHONPATH
+## Test the Tk Gui
+```shell
+## cd project-directory
+source ./.venv/bin/activate
+python test_tkinter.py
+```
 
-In your .venv/bin/activate, your python classpath must be set to include the .venv directory, plus the ./src directory, like this, but with your paths. 
+## Set your PYTHONPATH
+In your .venv/bin/activate, your python class path must be set to include the .venv directory, plus the ./src directory, like this, but with your computer paths. 
 
 `export PYTHONPATH=/Users/afraser/Documents/src/dreamteam/.venv/lib/python3.10/site-packages:/Users/afraser/Documents/src/dreamteam/src`
 
 
-Now make sure you have tk in there.
-
+## Test an nltk plot using iPython
 ```shell
-brew install brew install tcl-tk
-```
-And add this into ./.venv/bin/activate as well, probably right under pythonpath above.
-
-```shell
-export TK_LIBRARY="/opt/homebrew/Cellar/tcl-tk/8.6.14/lib"
-export LD_LIBRARY_PATH="/opt/homebrew/Cellar/tcl-tk/8.6.14/lib:$LD_LIBRARY_PATH"
+source ./.venv/bin/activate
+ipython
 ```
 
-
-
-## To do nltk plots in iPython
 ```python
 import matplotlib.pyplot as plt
 import nltk
